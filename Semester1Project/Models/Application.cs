@@ -7,6 +7,7 @@ namespace Semester1Project.Models
 {
     public class Application
     {
+        public int ApplicationId { get; set; }
         public string Status { get; set; }
         public virtual Job Job { get; set; }
         public virtual User User { get; set; }

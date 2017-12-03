@@ -2,14 +2,17 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Semester1Project.Models
 {
     public class Job
     {
+        public int JobId { get; set; }
         public string Title { get; set; }
         public string Description { get; set; }
         public string Location { get; set; }
+        [Column(TypeName = "datetime2")]
         public DateTime Date { get; set; }
         public int ExpectedHours { get; set; }
         public int Payment { get; set; }
