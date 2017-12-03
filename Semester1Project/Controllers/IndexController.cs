@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Semester1Project.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -10,6 +11,24 @@ namespace Semester1Project.Controllers
     {
         // GET: Index
         public ActionResult Index()
+        {
+            string sess = Session["Username"].ToString();
+            if (sess.Equals("") || sess == null)
+            {
+                return RegisterOrLogIn();
+            }
+            else
+            {
+                return Home();
+            }
+            
+        }
+
+        private ActionResult RegisterOrLogIn()
+        {
+            return View();
+        }
+        private ActionResult Home()
         {
             return View();
         }
