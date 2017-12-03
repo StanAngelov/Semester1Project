@@ -34,18 +34,5 @@ namespace Semester1Project.Models
 
             }
         }
-        
-
-        public User(string uName, string pass, string email, string phonenum, string realname , string loc)
-        {
-            UserName = uName;
-            Pass = pass;
-            Email = email;
-            PhoneNum = phonenum;
-            RealName = realname;          
-            Location = loc;
-        }
-
-
     }
 }

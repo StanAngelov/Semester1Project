@@ -19,20 +19,5 @@ namespace Semester1Project.Models
         public virtual IEnumerable<User> Workers { get; set; }
         public virtual IEnumerable<Application> Applications { get; set; }
         public virtual IEnumerable<Tag> Tags { get; set; }
-        
-        public Job(string title, string description, string location, int expectedHours, int payment, int maxWorkers, User jobCreator)
-        {
-            Title = title;
-            Description = description;
-            Location = location;
-            Date = new DateTime();
-            ExpectedHours = expectedHours;
-            Payment = payment;
-            MaxWorkers = maxWorkers;
-            JobCreator = jobCreator;
-            Workers = new List<User>();
-            Applications = new List<Application>();
-            Tags = new List<Tag>();
-        }
     }
 }
