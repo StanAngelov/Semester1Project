@@ -9,5 +9,11 @@ namespace Semester1Project.Models
     {
         public string Status { get; set; }
         public virtual Job Job { get; set; }
+        public virtual User User { get; set; }
+        
+        public Application()
+        {
+            //TODO
+        }
     }
 }
