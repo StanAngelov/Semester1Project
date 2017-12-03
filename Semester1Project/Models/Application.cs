@@ -11,9 +11,11 @@ namespace Semester1Project.Models
         public virtual Job Job { get; set; }
         public virtual User User { get; set; }
         
-        public Application()
+        public Application(Job job, User user)
         {
-            //TODO
+            Status = "New";
+            Job = job;
+            User = user;
         }
     }
 }
