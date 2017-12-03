@@ -13,8 +13,9 @@ namespace Semester1Project.Models
         public string Email { get; set; }
         public string PhoneNum { get; set; }
         public string RealName { get; set; }
-        public int JobCount { get; set; }
+        public int JobCount { get {  return Applications.Where(a => a.Status == "Completed").Count();   } }
         public string Location { get; set; }
+        public virtual IEnumerable<Application> Applications { get; set; }
         public virtual IEnumerable<Rating> ListofRatings { get; set; }
         public double Rating
         {
@@ -35,14 +36,13 @@ namespace Semester1Project.Models
         }
         
 
-        public User(string uName, string pass, string email, string phonenum, string realname, int jcount , string loc)
+        public User(string uName, string pass, string email, string phonenum, string realname , string loc)
         {
             UserName = uName;
             Pass = pass;
             Email = email;
             PhoneNum = phonenum;
-            RealName = realname;
-            JobCount = jcount;
+            RealName = realname;          
             Location = loc;
         }
 
