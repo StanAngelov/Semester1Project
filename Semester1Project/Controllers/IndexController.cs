@@ -12,25 +12,66 @@ namespace Semester1Project.Controllers
         // GET: Index
         public ActionResult Index()
         {
-            string sess = Session["Username"].ToString();
-            if (sess.Equals("") || sess == null)
+           
+            if (Session["UserId"] != null)
             {
-                return RegisterOrLogIn();
+                return View();
             }
             else
             {
-                return Home();
+                return RedirectToAction("Login");
             }
             
         }
+        #region REGISTER 
+        public ActionResult Register()
+        {
+            return View();
+        }
+        
+        [HttpPost]
+        public  ActionResult Register(User user)
+        {
+            if (ModelState.IsValid)
+            {
+                using(AccDbContext db = new AccDbContext())
+                {
+                    db.Users.Add(user);
+                    db.SaveChanges();
+                }
+                ModelState.Clear();
+                ViewBag.Message = user.FullName + ", You have successfully registered !";
+            }
+            return View();
+        }
+        #endregion
 
-        private ActionResult RegisterOrLogIn()
+
+        #region Login
+        public ActionResult Login()
         {
             return View();
         }
-        private ActionResult Home()
+        [HttpPost]
+        public ActionResult Login(User user)
         {
+            using(AccDbContext db = new AccDbContext())
+            {
+                var usr = db.Users.Where(u => u.UserName == user.UserName && u.Pass == user.Pass).FirstOrDefault();
+                if(usr != null)
+                {
+                    Session["UserId"] = usr.UserId;
+                    Session["UserName"] = usr.UserName;
+                    return RedirectToAction("Index");
+                }
+                else
+                {
+                    ModelState.AddModelError("", "Username or Password is wrong");
+                }                
+            }
             return View();
         }
+        #endregion
+   
     }
 }
