@@ -3,18 +3,27 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.ComponentModel.DataAnnotations.Schema;
-
+using System.ComponentModel.DataAnnotations;
 
 namespace Semester1Project.Models
 {
     public class Job
     {
+        [Key]
         public int JobId { get; set; }
+
+        [Required(ErrorMessage = "Title Required !")]
         public string Title { get; set; }
+
+        [Required(ErrorMessage = "Description Required !")]
         public string Description { get; set; }
+
+        [Required(ErrorMessage = "Location Required !")]
         public string Location { get; set; }
+
         [Column(TypeName = "datetime2")]
         public DateTime Date { get; set; }
+
         public int ExpectedHours { get; set; }
         public int Payment { get; set; }
         public bool IsDone { get; set; }

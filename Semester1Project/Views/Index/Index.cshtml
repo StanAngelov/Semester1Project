@@ -2,9 +2,14 @@
 @{
     ViewBag.Title = "Index";
 }
+@using Semester1Project.Models;
+@helper RenderJob(Job job) { 
+    }
 @if(Session["UserId"] != null)
 {
     <h4>HELLO MA FREND, @Session["UserName"].ToString()</h4>
+
+    @Html.Partial("IndexJobBanner", new Job { Title="TestTitle", Description = "Test DESCRIPTION", Location ="Aarhus", Payment = 500 })
 }
 <h2>Index</h2>
 

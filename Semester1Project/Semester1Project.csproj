@@ -142,6 +142,7 @@
     <Content Include="Views\Index\Register.cshtml" />
     <Content Include="Views\Index\Login.cshtml" />
     <Content Include="Views\Index\Index.cshtml" />
+    <Content Include="Views\Shared\IndexJobBanner.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
