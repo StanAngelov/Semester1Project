@@ -65,9 +65,8 @@ namespace Semester1Project.Controllers
             List<Job> JobList = new List<Job>();
             using (JobStoreContext db = new JobStoreContext())
             {
-                db.Jobs.Add(new Job { Description = "asdada" });
-                db.SaveChanges();
-                JobList = db.Jobs.ToList();
+
+                JobList = db.Jobs.Where(c => c.JobCreator == Session["UserId"]).ToList();
             }
             return View(JobList);
         }
