@@ -3055,7 +3055,6 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Models\AccDbContext.cs" />
     <Compile Include="Models\Application.cs" />
     <Compile Include="Models\Job.cs" />
     <Compile Include="Models\Rating.cs" />
