@@ -66,7 +66,7 @@ namespace Semester1Project.Controllers
             using (JobStoreContext db = new JobStoreContext())
             {
 
-                JobList = db.Jobs.Where(c => c.JobCreator == Session["UserId"]).ToList();
+                // todo fix this: JobList = db.Jobs.Where(c => c.JobCreator == Session["UserId"]).ToList();
             }
             return View(JobList);
         }
