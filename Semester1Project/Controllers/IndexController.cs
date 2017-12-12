@@ -75,6 +75,44 @@ namespace Semester1Project.Controllers
             return View();
         }
         #endregion
-   
+        #region SubmitJob
+
+        public ActionResult SubmitJob()
+        {
+            //TODO make it work only when session is available !
+            return View();
+        }
+
+        [HttpPost]
+        public ActionResult SubmitJob(Job job)
+        {
+            //TODO make it work only when session is available !
+            if (ModelState.IsValid)
+            {
+                using (JobStoreContext db = new JobStoreContext())
+                {
+                    db.Jobs.Add(job);
+                    db.SaveChanges();
+
+                }
+                ModelState.Clear(); 
+
+            }
+            return View();
+        }
+        #endregion
+        #region MyOffers
+        public ActionResult MyOffers()
+        {
+            List<Job> JobList = new List<Job>();
+            using (JobStoreContext db = new JobStoreContext())
+            {
+                db.Jobs.Add(new Job { Description = "asdada" });
+                db.SaveChanges();
+                 JobList = db.Jobs.ToList();
+            }
+                return View(JobList);
+        }
+        #endregion
     }
 }

@@ -21,6 +21,8 @@ namespace Semester1Project.Models
         [Required(ErrorMessage = "Location Required !")]
         public string Location { get; set; }
 
+        [DataType(DataType.Date)]
+        [DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}", ApplyFormatInEditMode = true)]
         [Column(TypeName = "datetime2")]
         public DateTime Date { get; set; }
 
