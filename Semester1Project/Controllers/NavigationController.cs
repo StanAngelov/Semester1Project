@@ -8,12 +8,11 @@ using System.Web.Mvc;
 
 namespace Semester1Project.Controllers
 {
-    public class IndexController : Controller
+    public class NavigationController : Controller
     {
-        // GET: Index
+        // GET: MobileNavBar
         public ActionResult Index()
         {
-           
             if (Session["UserId"] != null)
             {
                 return View();
@@ -22,32 +21,7 @@ namespace Semester1Project.Controllers
             {
                 return RedirectToAction("Login");
             }
-            
         }
-        #region REGISTER 
-        public ActionResult Register()
-        {
-            return View();
-        }
-        
-        [HttpPost]
-        public  ActionResult Register(User user)
-        {
-            if (ModelState.IsValid)
-            {
-                using(JobStoreContext db = new JobStoreContext())
-                {
-                    db.Users.Add(user);
-                    db.SaveChanges();
-                }
-                ModelState.Clear();
-                
-                
-            }
-            return RedirectToAction("Login");
-        }
-        #endregion
-
 
         #region Login
         public ActionResult Login()
@@ -57,11 +31,11 @@ namespace Semester1Project.Controllers
         [HttpPost]
         public ActionResult Login(User user)
         {
-            using(JobStoreContext db = new JobStoreContext())
+            using (JobStoreContext db = new JobStoreContext())
             {
-                
+
                 var usr = db.Users.Where(u => u.UserName == user.UserName && u.Pass == user.Pass).FirstOrDefault();
-                if(usr != null)
+                if (usr != null)
                 {
                     Session["UserId"] = usr.UserId;
                     Session["UserName"] = usr.UserName;
@@ -70,17 +44,59 @@ namespace Semester1Project.Controllers
                 else
                 {
                     ModelState.AddModelError("", "Username or Password is wrong");
-                }                
+                }
             }
             return View();
         }
         #endregion
-        #region SubmitJob
+
+        public ActionResult Search()
+        {
+            return View();
+        }
 
         public ActionResult SubmitJob()
         {
-            //TODO make it work only when session is available !
             return View();
+        }
+
+        public ActionResult MyOffers()
+        {
+            List<Job> JobList = new List<Job>();
+            using (JobStoreContext db = new JobStoreContext())
+            {
+                db.Jobs.Add(new Job { Description = "asdada" });
+                db.SaveChanges();
+                JobList = db.Jobs.ToList();
+            }
+            return View(JobList);
+        }
+
+        public ActionResult UserProfile()
+        {
+            return View();
+        }
+
+        public ActionResult Register()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public ActionResult Register(User user)
+        {
+            if (ModelState.IsValid)
+            {
+                using (JobStoreContext db = new JobStoreContext())
+                {
+                    db.Users.Add(user);
+                    db.SaveChanges();
+                }
+                ModelState.Clear();
+
+
+            }
+            return RedirectToAction("Login");
         }
 
         [HttpPost]
@@ -95,27 +111,10 @@ namespace Semester1Project.Controllers
                     db.SaveChanges();
 
                 }
-                ModelState.Clear(); 
+                ModelState.Clear();
 
             }
             return View();
         }
-        #endregion
-        #region MyOffers
-        public ActionResult MyOffers()
-        {
-            List<Job> JobList = new List<Job>();
-            using (JobStoreContext db = new JobStoreContext())
-            {
-                db.Jobs.Add(new Job { Description = "asdada" , Title= "title" , Location = "asdadas" ,});
-                db.SaveChanges();
-                 JobList = db.Jobs.ToList();
-            }
-                return View(JobList);
-        }
-        #endregion
-        #region Search
-        public Action
-        #endregion
     }
 }
