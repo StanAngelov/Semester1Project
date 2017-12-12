@@ -107,12 +107,15 @@ namespace Semester1Project.Controllers
             List<Job> JobList = new List<Job>();
             using (JobStoreContext db = new JobStoreContext())
             {
-                db.Jobs.Add(new Job { Description = "asdada" });
+                db.Jobs.Add(new Job { Description = "asdada" , Title= "title" , Location = "asdadas" ,});
                 db.SaveChanges();
                  JobList = db.Jobs.ToList();
             }
                 return View(JobList);
         }
+        #endregion
+        #region Search
+        public Action
         #endregion
     }
 }
