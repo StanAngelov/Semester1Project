@@ -1,4 +1,5 @@
-﻿using Semester1Project.Models;
+﻿using Semester1Project.Dal;
+using Semester1Project.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -34,7 +35,7 @@ namespace Semester1Project.Controllers
         {
             if (ModelState.IsValid)
             {
-                using(AccDbContext db = new AccDbContext())
+                using(JobStoreContext db = new JobStoreContext())
                 {
                     db.Users.Add(user);
                     db.SaveChanges();
@@ -44,7 +45,7 @@ namespace Semester1Project.Controllers
                 
                 ViewBag.Message = user.FullName + ", You have successfully registered !";
             }
-            return View();
+            return RedirectToAction("Login");
         }
         #endregion
 
@@ -57,8 +58,9 @@ namespace Semester1Project.Controllers
         [HttpPost]
         public ActionResult Login(User user)
         {
-            using(AccDbContext db = new AccDbContext())
+            using(JobStoreContext db = new JobStoreContext())
             {
+                
                 var usr = db.Users.Where(u => u.UserName == user.UserName && u.Pass == user.Pass).FirstOrDefault();
                 if(usr != null)
                 {
