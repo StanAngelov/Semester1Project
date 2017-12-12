@@ -3049,7 +3049,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\RouteConfig.cs" />
-    <Compile Include="Controllers\IndexController.cs" />
+    <Compile Include="Controllers\NavigationController.cs" />
     <Compile Include="Dal\JobStoreContext.cs" />
     <Compile Include="Dal\JobStoreInitializer.cs" />
     <Compile Include="Global.asax.cs">
@@ -3070,12 +3070,12 @@
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Scripts\jquery-1.10.2.min.map" />
-    <Content Include="Views\Index\Register.cshtml" />
-    <Content Include="Views\Index\Login.cshtml" />
-    <Content Include="Views\Index\Index.cshtml" />
+    <Content Include="Views\Navigation\Register.cshtml" />
+    <Content Include="Views\Navigation\Login.cshtml" />
+    <Content Include="Views\Navigation\Index.cshtml" />
     <Content Include="Views\Shared\IndexJobBanner.cshtml" />
-    <Content Include="Views\Index\SubmitJob.cshtml" />
-    <Content Include="Views\Index\MyOffers.cshtml" />
+    <Content Include="Views\Navigation\SubmitJob.cshtml" />
+    <Content Include="Views\Navigation\MyOffers.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
