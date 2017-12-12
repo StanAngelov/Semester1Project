@@ -3,6 +3,10 @@
     padding-bottom: 20px;
 }
 
+html, body, .body-content{
+    height: 100%;
+}
+
 /* Set padding to keep content from hitting the edges */
 .body-content {
     padding-left: 15px;
@@ -16,6 +20,44 @@ textarea {
     max-width: 280px;
 }
 
+.navbar {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+    grid-template-rows: 1fr;
+    grid-template-areas: "home search create list user"
+}
 
+footer {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    padding: 1rem;
+}
+
+.home {
+    grid-area: home;
+}
+
+.search {
+    grid-area: search;
+}
+
+.create {
+    grid-area: create;
+}
+
+.list {
+    grid-area: list;
+}
+
+.user {
+    grid-area: user;
+}
+
+.icon {
+    height: 100%;
+    margin: auto;
+}
 
 
