@@ -38,8 +38,10 @@ namespace Semester1Project.Controllers
                 {
                     db.Users.Add(user);
                     db.SaveChanges();
+                    var a = db.Users.ToList();
                 }
                 ModelState.Clear();
+                
                 ViewBag.Message = user.FullName + ", You have successfully registered !";
             }
             return View();

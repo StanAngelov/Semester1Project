@@ -26,26 +26,35 @@ namespace Semester1Project.Models
 
         [Required(ErrorMessage = "Full name Required !")]
         public string FullName { get; set; }
-        public int JobCount { get {  return Applications.Where(a => a.Status == "Completed").Count();   } }
+        //public int JobCount {
+        //    get {
+        //        if(Applications.Where(a => a.Status == "Completed").Count() <= 0 )
+        //        {
+        //            return 0;
+        //        }else{
+        //            return Applications.Where(a => a.Status == "Completed").Count();
+        //        }
+                
+        //        } }
         public string Location { get; set; }
         public virtual IEnumerable<Application> Applications { get; set; }
         public virtual IEnumerable<Rating> ListofRatings { get; set; }
-        public double Rating
-        {
-            get
-            {
-                double sum = 0;
-                int count = 0;
+        //public double Rating
+        //{
+        //    get
+        //    {
+        //        double sum = 0;
+        //        int count = 0;
 
-              foreach(Rating rate in ListofRatings)
-                {
-                    count++;
-                    sum += rate.Value;
-                }
+        //      foreach(Rating rate in ListofRatings)
+        //        {
+        //            count++;
+        //            sum += rate.Value;
+        //        }
 
-                return sum / count;
+        //        return sum / count;
 
-            }
-        }
+        //    }
+        //}
     }
 }
