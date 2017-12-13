@@ -1,10 +1,26 @@
 ﻿@model IEnumerable<Semester1Project.Models.Job>
+@using Semester1Project.Models;
 
 @{
     ViewBag.Title = "MyOffers";
 }
 
-<h2>MyOffers</h2>
+@foreach (Job job in Model)
+{
+   <a href="@Url.Action("SubmitJob")"> @Html.Partial("IndexJobBanner", job) </a>
+}
+
+
+
+
+
+
+
+
+
+
+
+@*<h2>MyOffers</h2>
 
 <p>
     @Html.ActionLink("Create New", "Create")
@@ -72,4 +88,4 @@
     </tr>
 }
 
-</table>
+</table>*@

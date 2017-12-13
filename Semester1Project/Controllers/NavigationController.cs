@@ -85,13 +85,17 @@ namespace Semester1Project.Controllers
 
         public ActionResult MyOffers()
         {
+            
+
+               
             if (Session["UserId"] != null)
             {
                 List<Job> JobList = new List<Job>();
                 using (JobStoreContext db = new JobStoreContext())
                 {
+                    int UserId = Convert.ToInt32(Session["UserId"]);
 
-                    // todo fix this: JobList = db.Jobs.Where(c => c.JobCreator == Session["UserId"]).ToList();
+                    JobList = db.Jobs.Where(c => c.JobCreator.UserId == UserId ).ToList();
                 }
                 return View(JobList);
             }
