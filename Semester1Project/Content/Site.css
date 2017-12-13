@@ -14,6 +14,11 @@ textarea {
     max-width: 280px;
 }
 
+.form-horizontal .form-group {
+     margin-right: 0px;
+     margin-left: 0px;
+}
+
 .titlebar {
     text-align: center;
     padding: 5px;
