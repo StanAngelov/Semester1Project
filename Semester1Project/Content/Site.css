@@ -72,10 +72,14 @@ footer {
 .jobbanner {
     white-space: nowrap;
     text-overflow: ellipsis;
+    height:10vh;
   
 }
-.jobrow{
-    max-height:20vh;
+.jobrow {
+    -webkit-box-shadow: 0 8px 6px -6px #9f9f9f;
+    -moz-box-shadow: 0 8px 6px -6px #9f9f9f;
+    box-shadow: 0 8px 6px -6px #9f9f9f;
+    padding-top:2vh;
 }
 .bannerSpanLocation {
     text-decoration: none;
@@ -86,4 +90,13 @@ footer {
     max-width: 75%;
     font-size: 13px;
 }
+.jobpayment {
+    font-size: 15px;
+    font-weight: 300;
+    height: 10vh;
+}
+.bannerPayment{
+    font-weight:600;
+}
+
 

@@ -1,15 +1,12 @@
 ﻿@model Semester1Project.Models.Job
-<div class="container">
-    <div class="row">
-       
+
+    <div class="row jobrow">       
                 <div class="col-xs-9 jobbanner">
                     <span class="bannerSpanTitle">@Model.Title </span>
                     <span class="bannerSpanLocation">@Model.Location </span>
-                </div>
-          
-                <div class="col-xs-3">
-                    <span>@Model.Payment DKK</span>
-                </div>           
+                </div>         
+                <div class="col-xs-3 jobpayment">
+                    <span class="bannerPayment">@Model.Payment DKK</span>
+                    <span>@Model.ExpectedHours Hours!</span>
+                </div>       
     </div>
-
-</div>
