@@ -15,7 +15,13 @@ namespace Semester1Project.Controllers
         {
             if (Session["UserId"] != null)
             {
-                return View();
+                using(JobStoreContext db = new JobStoreContext())
+                {
+                    List<Job> JobList = db.Jobs.ToList();
+                    return View(JobList);
+                }
+                
+           
             }
             else
             {
@@ -52,28 +58,60 @@ namespace Semester1Project.Controllers
 
         public ActionResult Search()
         {
-            return View();
+            if (Session["UserId"] != null)
+            {
+                return View();
+            }
+            else
+            {
+                return RedirectToAction("Login");
+            }
+           
         }
 
         public ActionResult SubmitJob()
         {
-            return View();
+            if (Session["UserId"] != null)
+            {
+                return View();
+            }
+            else
+            {
+                return RedirectToAction("Login");
+            }
         }
+
+     
 
         public ActionResult MyOffers()
         {
-            List<Job> JobList = new List<Job>();
-            using (JobStoreContext db = new JobStoreContext())
+            if (Session["UserId"] != null)
             {
+                List<Job> JobList = new List<Job>();
+                using (JobStoreContext db = new JobStoreContext())
+                {
 
-                // todo fix this: JobList = db.Jobs.Where(c => c.JobCreator == Session["UserId"]).ToList();
+                    // todo fix this: JobList = db.Jobs.Where(c => c.JobCreator == Session["UserId"]).ToList();
+                }
+                return View(JobList);
             }
-            return View(JobList);
+            else
+            {
+                return RedirectToAction("Login");
+            }
+           
         }
 
         public ActionResult UserProfile()
         {
-            return View();
+            if (Session["UserId"] != null)
+            {
+                return View();
+            }
+            else
+            {
+                return RedirectToAction("Login");
+            }
         }
 
         public ActionResult Register()
@@ -101,19 +139,29 @@ namespace Semester1Project.Controllers
         [HttpPost]
         public ActionResult SubmitJob(Job job)
         {
-            //TODO make it work only when session is available !
-            if (ModelState.IsValid)
+            if (Session["UserId"] != null)
             {
-                using (JobStoreContext db = new JobStoreContext())
+                if (ModelState.IsValid)
                 {
-                    db.Jobs.Add(job);
-                    db.SaveChanges();
+                    
+                    using (JobStoreContext db = new JobStoreContext())
+                    {
+                        int UserId = Convert.ToInt32(Session["UserId"]);
+                        job.JobCreator = db.Users.Where(c => c.UserId == UserId).FirstOrDefault();
+                        db.Jobs.Add(job);
+                        db.SaveChanges();
+
+                    }
+                    ModelState.Clear();
 
                 }
-                ModelState.Clear();
-
+                return View();
             }
-            return View();
+            else
+            {
+                return RedirectToAction("Login");
+            }
+         
         }
     }
 }
