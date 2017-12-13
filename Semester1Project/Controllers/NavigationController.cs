@@ -17,7 +17,7 @@ namespace Semester1Project.Controllers
             {
                 using(JobStoreContext db = new JobStoreContext())
                 {
-                    List<Job> JobList = db.Jobs.ToList();
+                    List<Job> JobList = db.Jobs.Where(c => c.IsDone != true).ToList();
                     return View(JobList);
                 }
                 
@@ -286,6 +286,36 @@ namespace Semester1Project.Controllers
                     {
                         return View(job);
                     }
+                }
+            }
+            else
+            {
+                return RedirectToAction("Login");
+            }
+
+
+        }
+
+        public ActionResult Apply(int id)
+        {
+            if (Session["UserId"] != null)
+            {
+                using (JobStoreContext db = new JobStoreContext())
+                {
+                    int UserId = Convert.ToInt32(Session["UserId"]);
+                    Job job = db.Jobs.Where(c => c.JobId == id).FirstOrDefault();
+                    User user = db.Users.Where(e => e.UserId == UserId).FirstOrDefault();
+                    Application app = new Application()
+                    {
+                        Job = job,
+                        User = user,
+                        Status = "Pending"
+                       
+                    };
+                    db.Applications.Add(app);
+                    db.SaveChanges();
+                    List<Job> JobList = db.Jobs.Where(c => c.IsDone != true).ToList();
+                    return View("Index",JobList);
                 }
             }
             else
