@@ -3078,6 +3078,7 @@
     <Content Include="Views\Navigation\MyOffers.cshtml" />
     <Content Include="Views\Navigation\Search.cshtml" />
     <Content Include="Views\Navigation\UserProfile.cshtml" />
+    <Content Include="Views\Shared\IndexMap.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
