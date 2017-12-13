@@ -3080,6 +3080,7 @@
     <Content Include="Views\Shared\IndexMap.cshtml" />
     <Content Include="Views\Navigation\UserProfile.cshtml" />
     <Content Include="Views\Navigation\EditJob.cshtml" />
+    <Content Include="Views\Navigation\JobDetail.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
