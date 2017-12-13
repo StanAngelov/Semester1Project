@@ -106,7 +106,39 @@ namespace Semester1Project.Controllers
         {
             if (Session["UserId"] != null)
             {
-                return View();
+                using (JobStoreContext db = new JobStoreContext())
+                {
+                    int userId = Convert.ToInt32(Session["UserId"]);
+                    User user = db.Users.Where(c => c.UserId == userId).FirstOrDefault();
+                    return View(user);
+                }
+            }
+            else
+            {
+                return RedirectToAction("Login");
+            }
+        }
+
+        [HttpPost]
+        public ActionResult UserProfile(User user)
+        {
+            if (Session["UserId"] != null)
+            {
+                using (JobStoreContext db = new JobStoreContext())
+                {
+                    int userId = Convert.ToInt32(Session["UserId"]);
+                    User curUser = db.Users.Where(c => c.UserId == userId).FirstOrDefault();
+                    curUser.UserName = user.UserName;
+                    curUser.Pass = user.Pass;
+                    curUser.PhoneNum = user.PhoneNum;
+                    curUser.Email = user.Email;
+                    curUser.FullName = user.FullName;
+                    curUser.JobCount = user.JobCount;
+                    curUser.Rating = user.Rating;
+                    curUser.Location = user.Location;
+                    db.SaveChanges();
+                    return View(curUser);
+                }
             }
             else
             {
