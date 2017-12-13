@@ -5,6 +5,8 @@
     ViewBag.Title = "MyOffers";
 }
 
+<div class="titlebar">My Offers</div>
+
 @foreach (Job job in Model)
 {
    <a href="@Url.Action("SubmitJob")"> @Html.Partial("IndexJobBanner", job) </a>
