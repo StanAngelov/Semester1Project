@@ -1,0 +1,82 @@
+﻿@model Semester1Project.Models.Job
+
+@{
+    ViewBag.Title = "JobDetail";
+}
+
+<h2>JobDetail</h2>
+
+<div>
+    <h4>Job</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Title)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Title)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Description)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Description)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Location)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Location)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Date)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Date)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ExpectedHours)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ExpectedHours)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Payment)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Payment)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.IsDone)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.IsDone)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.MaxWorkers)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.MaxWorkers)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.JobId }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
