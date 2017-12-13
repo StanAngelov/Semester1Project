@@ -199,5 +199,52 @@ namespace Semester1Project.Controllers
             }
          
         }
+
+        public ActionResult ChangeJob(int id)
+        {
+            using(JobStoreContext db = new JobStoreContext())
+            {
+                Job job = db.Jobs.Where(c => c.JobId == id).FirstOrDefault();
+                return View("EditJob", job);
+            }
+
+
+          
+        }
+
+        [HttpPost]
+        public ActionResult ChangeJob(Job job)
+        {
+            using(JobStoreContext db = new JobStoreContext())
+            {
+                Job dbJob = db.Jobs.Where(c => c.JobId == job.JobId).FirstOrDefault();
+                dbJob.Title = job.Title;
+                dbJob.Description = job.Description;
+                dbJob.Location = job.Location;
+                dbJob.Date = job.Date;
+                dbJob.ExpectedHours = job.ExpectedHours;
+                dbJob.Payment = job.Payment;
+                dbJob.MaxWorkers = job.MaxWorkers;
+                db.SaveChanges();
+            }
+
+
+            return RedirectToAction("MyOffers");
+        }
+
+        public ActionResult DeleteJob(int id)
+        {
+            using(JobStoreContext db = new JobStoreContext())
+            {
+                int UserId = Convert.ToInt32(Session["UserId"]);
+                Job job = db.Jobs.Where(c => c.JobId == id && c.JobCreator.UserId == UserId).FirstOrDefault();
+                db.Jobs.Remove(job);
+                db.SaveChanges();
+
+                ModelState.Clear();
+                return RedirectToAction("MyOffers");
+            }
+
+        }
     }
 }

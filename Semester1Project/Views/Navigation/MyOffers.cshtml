@@ -7,7 +7,7 @@
 
 @foreach (Job job in Model)
 {
-   <a href="@Url.Action("SubmitJob")"> @Html.Partial("IndexJobBanner", job) </a>
+   <a href="@Url.Action("ChangeJob/"+job.JobId)"> @Html.Partial("IndexJobBanner", job) </a>
 }
 
 
