@@ -7,9 +7,9 @@
     }
 @if(Session["UserId"] != null)
 {
-    <h4>HELLO MA FREND, @Session["UserName"].ToString()</h4>
+   
 
-    @Html.Partial("IndexJobBanner", new Job { Title="TestTitle", Description = "Test DESCRIPTION", Location ="Aarhus", Payment = 500 })
+    @Html.Partial("IndexJobBanner", new Job { Title="Walk My Dog", Description = "Walk my german shepherd every day for a week, feed him and make sure everything in the house if OK !", Location ="Aarhus, skanderborgvej 33", Payment = 500 })
 }
-<h2>Index</h2>
+
 

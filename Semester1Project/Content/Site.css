@@ -59,5 +59,31 @@ footer {
     height: 100%;
     margin: auto;
 }
-
+.bannerSpanTitle {
+    text-decoration: none;
+    text-overflow: ellipsis;
+    display: block;
+    overflow: hidden;
+    white-space: nowrap;
+    max-width: 75%;
+    font-weight:600;
+    font-size:26px;
+}
+.jobbanner {
+    white-space: nowrap;
+    text-overflow: ellipsis;
+  
+}
+.jobrow{
+    max-height:20vh;
+}
+.bannerSpanLocation {
+    text-decoration: none;
+    text-overflow: ellipsis;
+    display: block;
+    overflow: hidden;
+    white-space: nowrap;
+    max-width: 75%;
+    font-size: 13px;
+}
 
