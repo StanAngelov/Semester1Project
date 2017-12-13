@@ -14,7 +14,7 @@ textarea {
     max-width: 280px;
 }
 
-.form-horizontal .form-group {
+.form-horizontal .form-group .row {
      margin-right: 0px;
      margin-left: 0px;
 }
