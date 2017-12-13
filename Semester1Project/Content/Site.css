@@ -33,6 +33,7 @@ footer {
     bottom: 0;
     left: 0;
     padding: 1rem;
+    background-color: white;
 }
 
 .home {
@@ -73,7 +74,6 @@ footer {
     white-space: nowrap;
     text-overflow: ellipsis;
     height:10vh;
-  
 }
 .jobrow {
     -webkit-box-shadow: 0 8px 6px -6px #9f9f9f;
