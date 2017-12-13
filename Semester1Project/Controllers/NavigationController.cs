@@ -150,6 +150,18 @@ namespace Semester1Project.Controllers
             }
         }
 
+        public ActionResult Applicants(int id)
+        {
+            using (JobStoreContext db = new JobStoreContext())
+            {
+                Job job = db.Jobs.Where(c => c.JobId == id).FirstOrDefault();
+                List<Application> applications = new List<Application>();
+                if (job.Applications != null)
+                    applications = job.Applications.ToList();
+                return View(applications);
+            } 
+        }
+
         public ActionResult Register()
         {
             return View();
