@@ -4,35 +4,33 @@
     ViewBag.Title = "Edit Job";
 }
 
-<h2>Edit Job</h2>
-
+<div class="titlebar">Edit Job</div>
 @using (Html.BeginForm())
 {
     @Html.AntiForgeryToken()
 
     <div class="form-horizontal">
-        <h4>Job</h4>
-        <img src="/open-iconic/svg/aperture.svg">
-        <hr />
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
         <div class="form-group">
-            @Html.LabelFor(model => model.Title, htmlAttributes: new { @class = "control-label col-md-2" })
+            <label>Job name</label>
             <div class="col-md-12">
                 @Html.EditorFor(model => model.Title, new { htmlAttributes = new { @class = "form-control" } })
                 @Html.ValidationMessageFor(model => model.Title, "", new { @class = "text-danger" })
             </div>
         </div>
 
+        <input type="button" value="Mark as complete" class="btn btn-default col-xs-12" onclick="@("window.location.href='" + @Url.Action("MarkDone/"+Model.JobId) + "'");" />
+
         <div class="form-group">
-            @Html.LabelFor(model => model.Description, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-12">
-                @Html.EditorFor(model => model.Description, new { htmlAttributes = new { @class = "form-control" } })
+            <label>Description</label>
+            <div class="col-md-12 descriptionarea">
+                @Html.TextAreaFor(model => model.Description, new { htmlAttributes = new { @class = "form-control" } })
                 @Html.ValidationMessageFor(model => model.Description, "", new { @class = "text-danger" })
             </div>
         </div>
 
         <div class="form-group">
-            @Html.LabelFor(model => model.Location, htmlAttributes: new { @class = "control-label col-md-2" })
+            <label>Location</label>
             <div class="col-md-12">
                 @Html.EditorFor(model => model.Location, new { htmlAttributes = new { @class = "form-control" } })
                 @Html.ValidationMessageFor(model => model.Location, "", new { @class = "text-danger" })
@@ -40,7 +38,7 @@
         </div>
 
         <div class="form-group">
-            @Html.LabelFor(model => model.Date, htmlAttributes: new { @class = "control-label col-md-2" })
+            <label>Date</label>
             <div class="col-md-12">
                 @Html.EditorFor(model => model.Date, new { htmlAttributes = new { @class = "form-control" } })
                 @Html.ValidationMessageFor(model => model.Date, "", new { @class = "text-danger", @type = "date" })
@@ -48,7 +46,7 @@
         </div>
 
         <div class="form-group">
-            @Html.LabelFor(model => model.ExpectedHours, htmlAttributes: new { @class = "control-label col-md-2" })
+            <label>Expected hours</label>
             <div class="col-md-12">
                 @Html.EditorFor(model => model.ExpectedHours, new { htmlAttributes = new { @class = "form-control" } })
                 @Html.ValidationMessageFor(model => model.ExpectedHours, "", new { @class = "text-danger" })
@@ -56,7 +54,7 @@
         </div>
 
         <div class="form-group">
-            @Html.LabelFor(model => model.Payment, htmlAttributes: new { @class = "control-label col-md-2" })
+            <label>Payment</label>
             <div class="col-md-12">
                 @Html.EditorFor(model => model.Payment, new { htmlAttributes = new { @class = "form-control" } })
                 @Html.ValidationMessageFor(model => model.Payment, "", new { @class = "text-danger" })
@@ -64,7 +62,7 @@
         </div>
 
         <div class="form-group">
-            @Html.LabelFor(model => model.MaxWorkers, htmlAttributes: new { @class = "control-label col-md-2" })
+            <label>Max workers</label>
             <div class="col-md-12">
                 @Html.EditorFor(model => model.MaxWorkers, new { htmlAttributes = new { @class = "form-control" } })
                 @Html.ValidationMessageFor(model => model.MaxWorkers, "", new { @class = "text-danger" })
@@ -72,12 +70,13 @@
         </div>
 
         <div class="form-group">
-            <div class="col-md-offset-2 col-md-12">
+            <div class="col-xs-12">
                 @Html.HiddenFor(model => model.JobId)
-                <input type="submit" value="Save" class="btn btn-default" />
-                <p> or </p> @Html.ActionLink("Delete", "DeleteJob", new { id = Model.JobId });
-                <p> or </p> @Html.ActionLink("Mark as Complete", "MarkDone", new { id = Model.JobId });
-                <input type="button" value="Applicants" class="btn btn-default" onclick="@("window.location.href='" + @Url.Action("Applicants/"+Model.JobId) + "'");"/>
+                <input type="submit" value="Save" class="btn btn-default col-xs-12" />
+                <br />
+                <input type="button" value="Delete" class="btn btn-default col-xs-12" onclick="@("window.location.href='" + @Url.Action("DeleteJob/"+Model.JobId) + "'");" />
+                <br />
+                <input type="button" value="Applicants" class="btn btn-default col-xs-12" onclick="@("window.location.href='" + @Url.Action("Applicants/"+Model.JobId) + "'");" />
 
             </div>
         </div>
