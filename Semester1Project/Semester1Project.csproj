@@ -3084,6 +3084,7 @@
     <Content Include="Views\Navigation\EditJob.cshtml" />
     <Content Include="Views\Navigation\JobDetail.cshtml" />
     <Content Include="Views\Navigation\Applicants.cshtml" />
+    <Content Include="Views\Navigation\UserDetail.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
