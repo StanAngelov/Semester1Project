@@ -1,6 +1,9 @@
 ﻿html, body, .body-content{
     height: 100%;
 }
+a, a:link, a:visited, a:hover{
+    color:black;
+}
 
 .white {
     color: white;
@@ -130,6 +133,17 @@ footer {
     height: 100%;
     margin: auto;
 }
+.BannerRoot{
+    background-color:white;
+}
+.BannerRoot:active {
+    -moz-box-shadow: inset 0 0 10px #000000;
+    -webkit-box-shadow: inset 0 0 10px #000000;
+     box-shadow: inset 0 0 10px #000000;
+
+}
+
+
 .bannerSpanTitle {
     text-decoration: none;
     text-overflow: ellipsis;
