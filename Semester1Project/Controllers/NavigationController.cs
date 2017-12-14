@@ -1,5 +1,6 @@
 ﻿using Semester1Project.Dal;
 using Semester1Project.Models;
+using Semester1Project.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -81,6 +82,30 @@ namespace Semester1Project.Controllers
             }
         }
 
+        public ActionResult MarkDone(int id)
+        {
+            if (Session["UserId"] != null)
+            {
+
+                using(JobStoreContext db = new JobStoreContext())
+                {
+                    int UserId = Convert.ToInt32(Session["UserId"]);
+                    Job job = db.Jobs.Where(x => x.JobCreator.UserId == UserId && x.JobId == id).FirstOrDefault();
+                    job.IsDone = true;
+
+                    List<Application> app = db.Applications.Where(x => x.Job.JobCreator.UserId == UserId && x.Job.JobId == id).ToList();
+                    app.ForEach(x => x.Status = "Done");
+                    db.SaveChanges();
+
+                }
+                return RedirectToAction("MyOffers");
+            }
+            else
+            {
+                return RedirectToAction("Login");
+            }
+        }
+
      
 
         public ActionResult MyOffers()
@@ -152,14 +177,25 @@ namespace Semester1Project.Controllers
 
         public ActionResult Applicants(int id)
         {
-            using (JobStoreContext db = new JobStoreContext())
+            if (Session["UserId"] != null)
+            {
+                using (JobStoreContext db = new JobStoreContext())
             {
                 Job job = db.Jobs.Where(c => c.JobId == id).FirstOrDefault();
                 List<Application> applications = new List<Application>();
-                if (job.Applications != null)
-                    applications = job.Applications.ToList();
-                return View(applications);
-            } 
+                applications = db.Applications.Where(a => a.Job.JobId == job.JobId).ToList();
+                List<User> applicants = new List<User>();
+                    List<UserApplicationViewModel> viewmodel = new List<UserApplicationViewModel>();
+                    UserApplicationViewModel entry = new UserApplicationViewModel();
+                    applications.ForEach(x => { entry.Application = x; entry.Applicant = x.User; viewmodel.Add(entry); });
+                return View(viewmodel);
+            }
+            }
+            else
+            {
+                return RedirectToAction("Login");
+            }
+
         }
 
         public ActionResult Register()
@@ -306,6 +342,27 @@ namespace Semester1Project.Controllers
             }
 
 
+        }
+
+        public ActionResult Hire(int id)
+        {
+            if (Session["UserId"] != null)
+            {
+                using (JobStoreContext db = new JobStoreContext())
+                {
+                    int userId = Convert.ToInt32(Session["UserId"]);
+                    Application app = new Application();
+                    app = db.Applications.Where(x => x.ApplicationId == id && x.Job.JobCreator.UserId == userId).FirstOrDefault();
+                    app.Status = "Started";
+                    db.SaveChanges();
+                }
+
+                    return View();
+            }
+            else
+            {
+                return RedirectToAction("Login");
+            }
         }
 
         public ActionResult Apply(int id)
