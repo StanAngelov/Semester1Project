@@ -1,4 +1,4 @@
-﻿@model IEnumerable<Semester1Project.Models.Application>
+﻿@model IEnumerable<Semester1Project.ViewModels.UserApplicationViewModel>
 
 @{
     ViewBag.Title = "Applicants";
@@ -12,7 +12,28 @@
 <table class="table">
     <tr>
         <th>
-            @Html.DisplayNameFor(model => model.Status)
+            @Html.DisplayNameFor(model => model.Applicant.UserName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Applicant.Pass)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Applicant.Email)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Applicant.PhoneNum)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Applicant.FullName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Applicant.JobCount)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Applicant.Rating)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Applicant.Location)
         </th>
         <th></th>
     </tr>
@@ -20,12 +41,32 @@
 @foreach (var item in Model) {
     <tr>
         <td>
-            @Html.DisplayFor(modelItem => item.Status)
+            @Html.DisplayFor(modelItem => item.Applicant.UserName)
         </td>
         <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.ApplicationId }) |
-            @Html.ActionLink("Details", "Details", new { id=item.ApplicationId }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.ApplicationId })
+            @Html.DisplayFor(modelItem => item.Applicant.Pass)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Applicant.Email)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Applicant.PhoneNum)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Applicant.FullName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Applicant.JobCount)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Applicant.Rating)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Applicant.Location)
+        </td>
+        <td>
+            @Html.ActionLink("Hire", "Hire", new { id=item.Application.ApplicationId }) |
+            @Html.ActionLink("Decline", "Decline", new { id=item.Application.ApplicationId }) |
         </td>
     </tr>
 }

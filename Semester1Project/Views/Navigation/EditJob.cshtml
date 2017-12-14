@@ -76,7 +76,9 @@
                 @Html.HiddenFor(model => model.JobId)
                 <input type="submit" value="Save" class="btn btn-default" />
                 <p> or </p> @Html.ActionLink("Delete", "DeleteJob", new { id = Model.JobId });
+                <p> or </p> @Html.ActionLink("Mark as Complete", "MarkDone", new { id = Model.JobId });
                 <input type="button" value="Applicants" class="btn btn-default" onclick="@("window.location.href='" + @Url.Action("Applicants/"+Model.JobId) + "'");"/>
+
             </div>
         </div>
     </div>
