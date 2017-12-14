@@ -220,6 +220,14 @@ namespace Semester1Project.Controllers
             return RedirectToAction("Login");
         }
 
+        public ActionResult Logout()
+        {
+            Session.Clear();
+            Session.Abandon();
+            return RedirectToAction("Index");
+
+        }
+
         [HttpPost]
         public ActionResult SubmitJob(Job job)
         {
