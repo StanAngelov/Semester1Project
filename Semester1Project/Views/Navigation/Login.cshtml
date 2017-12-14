@@ -19,7 +19,7 @@
             <div class="form-horizontal loginform">
 
                 @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-                <div class="form-group col-xs-12">
+                <div class="form-group">
 
                     <div class="col-xs-12">
                         @Html.EditorFor(model => model.UserName, new { htmlAttributes = new { @class = "form-control", @placeholder = "Username" } })
@@ -27,7 +27,7 @@
                     </div>
                 </div>
 
-                <div class="form-group col-xs-12">
+                <div class="form-group">
                     <div class="col-xs-12">
                         @Html.EditorFor(model => model.Pass, new { htmlAttributes = new { @class = "form-control", @placeholder = "Password" } })
                         @Html.ValidationMessageFor(model => model.Pass, "", new { @class = "text-danger" })
@@ -35,7 +35,7 @@
                 </div>
 
 
-                <div class="form-group col-xs-12">
+                <div class="form-group">
                     <div class="col-xs-12">
                         <input type="submit" value="Log in" class="btn btn-default col-xs-12" />
                         <p class="register"> or @Html.ActionLink("Register", "Register", null, new { @class = "white"}) </p>

@@ -1,48 +1,85 @@
-﻿@media (max-width: 1366px) {
-    html, body, .body-content {
-        height: 100%;
-    }
+﻿
+@font-face {
+    font-family: "Dopestyle";
+    src: url("../Fonts/Dopestyle.ttf");
+}
+html, body, .body-content {
+    height: 100%;
+}
 
-    a, a:link, a:visited, a:hover {
-        color: black;
-    }
+a, a:link, a:visited, a:hover {
+    color: black;
+}
 
-    .white {
-        color: white;
-    }
+.white {
+    color: white;
+}
 
-    .container {
-        padding-right: 0;
-        padding-left: 0;
-    }
+.container {
+    padding-right: 0;
+    padding-left: 0;
+}
 
-    /* Set width on the form input elements since they're 100% wide by default */
-    input,
-    select,
-    textarea {
-        max-width: 280px;
-        margin: auto;
-    }
+/* Set width on the form input elements since they're 100% wide by default */
+input,
+select,
+textarea {
+    max-width: 280px;
+    margin: auto;
+}
 
-    label {
-        width: 100%;
-        text-align: center;
-    }
+label {
+    width: 100%;
+    text-align: center;
+}
 
-    .btn {
-        display: block;
+.btn {
+    display: block;
+    background-color: #3ECBE8;
+    border-color: #2686E8;
+}
+
+    .btn:hover {
         background-color: #3ECBE8;
-        border-color: #2686E8;
     }
 
-        .btn:hover {
-            background-color: #3ECBE8;
-        }
+.row {
+    margin-right: 0px;
+    margin-left: 0px;
+}
 
-    .row {
-        margin-right: 0px;
-        margin-left: 0px;
-    }
+
+body {
+    background: linear-gradient(to bottom, #51ADFF, #3CC0E8);
+}
+.logo {
+    text-align: center;
+    padding: 5px;
+    font-family: "Dopestyle";
+    font-size: 45px;
+    margin-bottom: 40px;
+}
+.register {
+    text-align: center;
+    padding-top: 20px;
+}
+.loginPage {
+    background: linear-gradient(to bottom, #51ADFF, #3CC0E8);
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+
+
+
+
+@media(min-width: 1366px){
+
+}
+@media (max-width: 1366px) {
+  
 
     .control-label {
         margin: auto;
@@ -77,35 +114,13 @@
         grid-template-areas: "home search create list user"
     }
 
-    @font-face {
-        font-family: "Dopestyle";
-        src: url("../Fonts/Dopestyle.ttf");
-    }
+    
 
-    .logo {
-        text-align: center;
-        padding: 5px;
-        font-family: "Dopestyle";
-        font-size: 45px;
-        margin-bottom: 40px;
-    }
+   
+    
 
-    .register {
-        text-align: center;
-        padding-top: 20px;
-    }
-
-    body {
-        background: linear-gradient(to bottom, #51ADFF, #3CC0E8);
-    }
-
-    .loginPage {
-        background: linear-gradient(to bottom, #51ADFF, #3CC0E8);
-        height: 100%;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-    }
+   
+   
 
     .loginContainer {
         max-width: 100%;

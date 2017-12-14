@@ -23,41 +23,41 @@
                 <h1>@ViewBag.Message SUCCESS AT REGISTERING !!!</h1>
             }
             <div class="form-group">
-                <div class="col-md-10">
+                <div class="col-md-12">
                     @Html.EditorFor(model => model.UserName, new { htmlAttributes = new { @class = "form-control", @placeholder = "Username"} })
                     @Html.ValidationMessageFor(model => model.UserName, "", new { @class = "text-danger" })
                 </div>
             </div>
 
             <div class="form-group">
-                <div class="col-md-10">
+                <div class="col-md-12">
                     @Html.EditorFor(model => model.Pass, new { htmlAttributes = new { @class = "form-control", @placeholder = "Password" } })
                     @Html.ValidationMessageFor(model => model.Pass, "", new { @class = "text-danger" })
                 </div>
             </div>
 
             <div class="form-group">
-                <div class="col-md-10">
+                <div class="col-md-12">
                     @Html.EditorFor(model => model.FullName, new { htmlAttributes = new { @class = "form-control", @placeholder = "Full Name" } })
                     @Html.ValidationMessageFor(model => model.FullName, "", new { @class = "text-danger" })
                 </div>
             </div>
 
             <div class="form-group">
-                <div class="col-md-10">
+                <div class="col-md-12">
                     @Html.EditorFor(model => model.Email, new { htmlAttributes = new { @class = "form-control", @placeholder = "E-Mail" } })
                     @Html.ValidationMessageFor(model => model.Email, "", new { @class = "text-danger" })
                 </div>
             </div>
 
             <div class="form-group">
-                <div class="col-md-10">
+                <div class="col-md-12">
                     @Html.EditorFor(model => model.PhoneNum, new { htmlAttributes = new { @class = "form-control", @placeholder = "Phone Number" } })
                     @Html.ValidationMessageFor(model => model.PhoneNum, "", new { @class = "text-danger" })
                 </div>
             </div>
 
-            <div class="form-group col-xs-12">
+            <div class="form-group">
                 <div class="col-xs-12">
                     <input type="submit" value="Sign Up" class="btn btn-default col-xs-12" />
                     <p class="register"> or back to @Html.ActionLink("Login", "Login", null, new { @class = "white" }) </p>
