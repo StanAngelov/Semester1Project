@@ -70,15 +70,37 @@ body {
     flex-direction: column;
     justify-content: center;
 }
+.titlebar {
+    text-align: center;
+    padding: 5px;
+    font-size: 16px;
+    background: linear-gradient(to bottom, #2FB05A 0%,#29994E 100%)
+}
 
 
 
 
 
 @media(min-width: 1366px){
+   .navbar {
+    display:none;
+
+       
+    }
+   .Map{
+       margin-top:50px;
+   }
+  
+   .titlebar{
+       display:none;
+   }
+ 
 
 }
 @media (max-width: 1366px) {
+    .navbar2{
+        display:none;
+    }
   
 
     .control-label {
@@ -99,12 +121,7 @@ body {
         margin-top: 10px;
     }
 
-    .titlebar {
-        text-align: center;
-        padding: 5px;
-        font-size: 16px;
-        background: linear-gradient(to bottom, #2FB05A 0%,#29994E 100%)
-    }
+   
 
     .navbar {
         min-height: 35px;

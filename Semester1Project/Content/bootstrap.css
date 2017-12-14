@@ -4022,7 +4022,7 @@ textarea.input-group-sm > .input-group-btn > .btn {
   border-top-left-radius: 0;
 }
 
-.navbar {
+.navbar2 {
   position: relative;
   z-index: 1000;
   min-height: 50px;
@@ -4030,28 +4030,28 @@ textarea.input-group-sm > .input-group-btn > .btn {
   border: 1px solid transparent;
 }
 
-.navbar:before,
-.navbar:after {
+.navbar2:before,
+.navbar2:after {
   display: table;
   content: " ";
 }
 
-.navbar:after {
+.navbar2:after {
   clear: both;
 }
 
-.navbar:before,
-.navbar:after {
+.navbar2:before,
+.navbar2:after {
   display: table;
   content: " ";
 }
 
-.navbar:after {
+.navbar2:after {
   clear: both;
 }
 
 @media (min-width: 768px) {
-  .navbar {
+  .navbar2 {
     border-radius: 4px;
   }
 }
