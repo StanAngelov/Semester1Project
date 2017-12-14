@@ -157,6 +157,13 @@ footer {
 .bannerPayment{
     font-weight:600;
 }
+.text-danger {
+    display:block;
+    text-align: center;
+    list-style-type: none;
+}
+
+
 
 
 
