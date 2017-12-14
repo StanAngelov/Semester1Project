@@ -21,6 +21,8 @@ textarea {
 
 .btn {
     display: block;
+    background-color: #3ECBE8;
+    border-color: #2686E8;
 }
 
 .row {
@@ -32,6 +34,11 @@ textarea {
     margin: auto;
 }
 
+.registerbuttons {
+    display: flex;
+    flex-direction: row;
+}
+
 .form-horizontal .form-group {
     margin-right: 0px;
     margin-left: 0px;
@@ -41,7 +48,7 @@ textarea {
     text-align: center;
     padding: 5px;
     font-size: 16px;
-    background-color: #51ADFF;
+    background: linear-gradient(to bottom, #a9db80 0%,#96c56f 100%);
 }
 
 .navbar {
@@ -70,8 +77,12 @@ textarea {
     padding-top: 20px;
 }
 
+.body-content {
+    background: linear-gradient(to bottom, #51ADFF, #3CC0E8);
+}
+
 .loginPage {
-    background-color: #51ADFF;
+    background: linear-gradient(to bottom, #51ADFF, #3CC0E8);
     height: 100%;
     display: flex;
     flex-direction: column;
@@ -92,7 +103,7 @@ footer {
     bottom: 0;
     left: 0;
     padding: 1rem;
-    background-color: #51ADFF;
+    background: linear-gradient(to bottom, #a9db80 0%,#96c56f 100%);
 }
 
 .home {
