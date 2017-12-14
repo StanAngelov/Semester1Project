@@ -1460,6 +1460,7 @@
     <Content Include="open-iconic\webp\zoom-out-6x.webp" />
     <Content Include="open-iconic\webp\zoom-out-8x.webp" />
     <Content Include="open-iconic\webp\zoom-out.webp" />
+    <Content Include="Fonts\Dopestyle.ttf" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="open-iconic\font\css\open-iconic-bootstrap.css" />
     <Content Include="open-iconic\font\css\open-iconic-bootstrap.min.css" />
