@@ -112,6 +112,10 @@ body {
         flex-direction: row;
     }
 
+    .Map {
+        border-bottom: 1.5px solid lightgrey;
+    }
+
     .form-horizontal .form-group {
         margin-right: 0px;
         margin-left: 0px;
@@ -191,7 +195,8 @@ body {
     }
 
     .BannerRoot {
-        background-color: white;
+        background: linear-gradient(to bottom, #ffffff 0%,#e5e5e5 100%);
+        margin: 1em;
     }
 
         .BannerRoot:active {
