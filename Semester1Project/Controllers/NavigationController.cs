@@ -106,6 +106,17 @@ namespace Semester1Project.Controllers
             }
         }
 
+        public ActionResult UserDetail(int id)
+        {
+            using(JobStoreContext db = new JobStoreContext())
+            {
+                User user = new User();
+                user = db.Users.Where(x => x.UserId == id).FirstOrDefault();
+                return View(user);
+            }
+
+           
+        }
      
 
         public ActionResult MyOffers()
