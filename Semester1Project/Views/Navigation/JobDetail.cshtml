@@ -4,78 +4,24 @@
     ViewBag.Title = "JobDetail";
 }
 
-<h2>JobDetail</h2>
+<div class="titlebar">Job details</div>
 
-<div>
-    <h4>Job</h4>
-    <hr />
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.Title)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Title)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Description)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Description)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Location)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Location)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Date)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Date)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.ExpectedHours)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.ExpectedHours)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Payment)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Payment)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.IsDone)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.IsDone)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.MaxWorkers)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.MaxWorkers)
-        </dd>
-
-    </dl>
+<div class="infopage">
+    <label>Job name: </label>
+    <div class="col-xs-12 text-center">@Html.DisplayFor(model => model.Title)</div>
+    <label>Description: </label>
+    <div class="col-xs-12 text-center">@Html.DisplayFor(model => model.Description)</div>
+    <label>Location: </label>
+    <div class="col-xs-12 text-center">@Html.DisplayFor(model => model.Location)</div>
+    <label>Date: </label>
+    <div class="col-xs-12 text-center">@Html.DisplayFor(model => model.Date)</div>
+    <label>Expected hours the job will take: </label>
+    <div class="col-xs-12 text-center">@Html.DisplayFor(model => model.ExpectedHours)</div>
+    <label>Pay (DKK): </label>
+    <div class="col-xs-12 text-center">@Html.DisplayFor(model => model.Payment)</div>
+    <label>Maximum amount of workers: </label>
+    <div class="col-xs-12 text-center">@Html.DisplayFor(model => model.MaxWorkers)</div>
+    <br />
+    <input type="button" value="Apply for this job" class="btn btn-default col-xs-12" onclick="@("window.location.href='" + @Url.Action("Apply/"+Model.JobId) + "'");" />
 </div>
-<p>
-    @Html.ActionLink("Apply", "Apply/" + Model.JobId)
-</p>
+
