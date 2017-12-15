@@ -3,9 +3,6 @@
     font-family: "Dopestyle";
     src: url("../Fonts/Dopestyle.ttf");
 }
-html, body, .body-content {
-    height: 100%;
-}
 
 a, a:link, a:visited, a:hover {
     color: black;
@@ -51,6 +48,8 @@ label {
 
 body {
     background: linear-gradient(to bottom, #51ADFF, #3CC0E8);
+    height: 100%;
+    margin-bottom: 55px;
 }
 .logo {
     text-align: center;
