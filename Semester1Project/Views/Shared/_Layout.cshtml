@@ -9,6 +9,7 @@
     <script src="~/Scripts/modernizr-2.6.2.js"></script>
 </head>
 <body>
+    <div class="wrapper">
     <div class="navbar2 navbar-inverse navbar-fixed-top">
         <div class="container">
             <div class="navbar-header">
@@ -26,19 +27,19 @@
     </div>
 
     <div class="container-fluid body-content">
-        <div class="rapper">
             @RenderBody()
-        </div>
-        <footer>
-            <div class="navbar">
-                <a class="home icon" href="@Url.Action("Index")"><img class="icon" src="/open-iconic/svg/home.svg"></a>
-                <a class="search icon" href="@Url.Action("Search")"><img class="icon" src="/open-iconic/svg/magnifying-glass.svg"></a>
-                <a class="create icon" href="@Url.Action("SubmitJob")"><img class="icon" src="/open-iconic/svg/plus.svg"></a>
-                <a class="list icon" href="@Url.Action("MyOffers")"><img class="icon" src="/open-iconic/svg/list.svg"></a>
-                <a class="user icon" href="@Url.Action("UserProfile")"><img class="icon" src="/open-iconic/svg/person.svg"></a>
-            </div>
-        </footer>
+        
     </div>
+    </div>
+    <footer>
+        <div class="navbar">
+            <a class="home icon" href="@Url.Action("Index")"><img class="icon" src="/open-iconic/svg/home.svg"></a>
+            <a class="search icon" href="@Url.Action("Search")"><img class="icon" src="/open-iconic/svg/magnifying-glass.svg"></a>
+            <a class="create icon" href="@Url.Action("SubmitJob")"><img class="icon" src="/open-iconic/svg/plus.svg"></a>
+            <a class="list icon" href="@Url.Action("MyOffers")"><img class="icon" src="/open-iconic/svg/list.svg"></a>
+            <a class="user icon" href="@Url.Action("UserProfile")"><img class="icon" src="/open-iconic/svg/person.svg"></a>
+        </div>
+    </footer>
 
     <script src="~/Scripts/jquery-1.10.2.min.js"></script>
     <script src="~/Scripts/bootstrap.min.js"></script>

@@ -7,15 +7,33 @@
 a, a:link, a:visited, a:hover {
     color: black;
 }
-
-html {
-    height: 100%;
+body {
+    background: linear-gradient(to bottom, #51ADFF, #3CC0E8);
+}
+html,body {
+    min-height: 100%;
 }
 
-body {
-    min-height: 100%;
-    display: flex;
-    flex-direction: column;
+.wrapper {
+    margin-bottom:70px;
+}
+
+.map-container {
+    position: relative;
+    width: 100%;
+    padding-bottom: 90%;
+}
+.map {
+    display: block;
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    width: 100%;
 }
 
 .white {
@@ -55,14 +73,6 @@ label {
     margin-left: 0px;
 }
 
-.rapper {
-    flex: 1;
-}
-
-
-body {
-    background: linear-gradient(to bottom, #51ADFF, #3CC0E8);
-}
 .logo {
     text-align: center;
     padding: 5px;
