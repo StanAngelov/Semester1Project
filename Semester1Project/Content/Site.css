@@ -64,9 +64,16 @@ label {
     border-color: #2686E8;
 }
 
-    .btn:hover {
-        background-color: #3ECBE8;
-    }
+.btn:hover {
+    background-color: #3ECBE8;
+}
+
+.applicantinfo {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
 
 .row {
     margin-right: 0px;
