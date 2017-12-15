@@ -22,6 +22,20 @@
     <label>Maximum amount of workers: </label>
     <div class="col-xs-12 text-center">@Html.DisplayFor(model => model.MaxWorkers)</div>
     <br />
+    @if(ViewBag.appstatus != "Pending" && ViewBag.appstatus != "Started"  && ViewBag.appstatus != "Done") { 
     <input type="button" value="Apply for this job" class="btn btn-default col-xs-12" onclick="@("window.location.href='" + @Url.Action("Apply/"+Model.JobId) + "'");" />
+    }
+
+    @if(ViewBag.appstatus == "Pending")
+    {
+        <h4>Your Job request is awaiting response.</h4>
+    }
+
+    @if (ViewBag.appstatus == "Started")
+    {
+        <h4>This job is in progress.</h4>
+    }
+
+
 </div>
 

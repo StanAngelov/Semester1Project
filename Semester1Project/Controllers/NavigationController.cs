@@ -18,7 +18,8 @@ namespace Semester1Project.Controllers
             {
                 using(JobStoreContext db = new JobStoreContext())
                 {
-                    List<Job> JobList = db.Jobs.Where(c => c.IsDone != true).ToList();
+
+                    List<Job> JobList = db.Jobs.Where(c => c.IsDone != true && DateTime.Compare(c.Date, DateTime.Today) > 0).ToList();
                     return View(JobList);
                 }
                 
@@ -409,6 +410,7 @@ namespace Semester1Project.Controllers
                 {
                     int UserId = Convert.ToInt32(Session["UserId"]);
                     Job job = db.Jobs.Where(c => c.JobId == id ).FirstOrDefault();
+                    Application app = db.Applications.Where(x => x.Job.JobId == job.JobId && x.User.UserId == UserId).FirstOrDefault();
 
                     if (job.JobCreator.UserId == UserId)
                     {
@@ -416,6 +418,8 @@ namespace Semester1Project.Controllers
                     }
                     else
                     {
+                        ViewBag.appstatus = app.Status;
+
                         return View(job);
                     }
                 }
