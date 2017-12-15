@@ -4,79 +4,19 @@
     ViewBag.Title = "UserDetail";
 }
 
-<h2>UserDetail</h2>
+<div class="titlebar">User details</div>
 
-<div>
-    <h4>User</h4>
-    <hr />
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.UserName)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.UserName)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Pass)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Pass)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Email)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Email)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.PhoneNum)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.PhoneNum)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.FullName)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.FullName)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.JobCount)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.JobCount)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Rating)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Rating)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Location)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Location)
-        </dd>
-
-    </dl>
+<div class="infopage">
+    <label>Username: </label>
+    <div class="col-xs-12 text-center">@Html.DisplayFor(model => model.UserName)</div>
+    <label>E-Mail: </label>
+    <div class="col-xs-12 text-center">@Html.DisplayFor(model => model.Email)</div>
+    <label>Phone nuber: </label>
+    <div class="col-xs-12 text-center">@Html.DisplayFor(model => model.PhoneNum)</div>
+    <label>Full name: </label>
+    <div class="col-xs-12 text-center">@Html.DisplayFor(model => model.FullName)</div>
+    <label>Jobs done: </label>
+    <div class="col-xs-12 text-center">@Html.DisplayFor(model => model.JobCount)</div>
+    <label>Location: </label>
+    <div class="col-xs-12 text-center">@Html.DisplayFor(model => model.Location)</div>
 </div>
-<p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.UserId }) |
-    @Html.ActionLink("Back to List", "Index")
-</p>
