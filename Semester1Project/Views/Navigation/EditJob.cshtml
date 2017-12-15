@@ -76,7 +76,11 @@
                 <br />
                 <input type="button" value="Delete" class="btn btn-default col-xs-12" onclick="@("window.location.href='" + @Url.Action("DeleteJob/"+Model.JobId) + "'");" />
                 <br />
-                <input type="button" value="Applicants" class="btn btn-default col-xs-12" onclick="@("window.location.href='" + @Url.Action("Applicants/"+Model.JobId) + "'");" />
+                @if (Convert.ToInt32(ViewBag.Workers) < Model.MaxWorkers)
+                {
+                @:<input type="button" value="Applicants" class="btn btn-default col-xs-12" onclick="@("window.location.href='" + @Url.Action("Applicants/" + Model.JobId) + "'");" />
+                }
+
 
             </div>
         </div>

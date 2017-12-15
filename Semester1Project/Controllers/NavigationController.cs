@@ -230,7 +230,7 @@ namespace Semester1Project.Controllers
             {
                 Job job = db.Jobs.Where(c => c.JobId == id).FirstOrDefault();
                 List<Application> applications = new List<Application>();
-                applications = db.Applications.Where(a => a.Job.JobId == job.JobId).ToList();
+                applications = db.Applications.Where(a => a.Job.JobId == job.JobId && a.Status == "Pending").ToList();
                 List<User> applicants = new List<User>();
                     List<UserApplicationViewModel> viewmodel = new List<UserApplicationViewModel>();
                     UserApplicationViewModel entry = new UserApplicationViewModel();
@@ -309,7 +309,11 @@ namespace Semester1Project.Controllers
             {
                 using (JobStoreContext db = new JobStoreContext())
                 {
-                    Job job = db.Jobs.Where(c => c.JobId == id).FirstOrDefault();
+                    int UserId = Convert.ToInt32(Session["UserId"]);
+                    Job job = db.Jobs.Where(c => c.JobId == id && c.JobCreator.UserId == UserId).FirstOrDefault();
+                    int Workers = 0;
+                    Workers = db.Applications.Where(w => w.Job.JobId == id && w.Status == "Started").Count();
+                    ViewBag.Workers = Workers;
                     return View("EditJob", job);
                 }
             }
@@ -408,6 +412,23 @@ namespace Semester1Project.Controllers
                     int userId = Convert.ToInt32(Session["UserId"]);
                     Application app = new Application();
                     app = db.Applications.Where(x => x.ApplicationId == id && x.Job.JobCreator.UserId == userId).FirstOrDefault();
+                    Job job = new Job();
+                    job = app.Job;
+                    List<User> workers = new List<User>();
+                    User worker = new User();
+                    worker = app.User;
+                    if(job.Workers == null)
+                    {
+                        workers.Add(worker);
+                        job.Workers = workers;
+                    }
+                    else
+                    {
+                        workers = job.Workers.ToList();
+                        workers.Add(worker);
+                    }
+                 
+                   
                     app.Status = "Started";
                     db.SaveChanges();
                 }
