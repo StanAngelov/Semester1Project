@@ -4,72 +4,9 @@
     ViewBag.Title = "Applicants";
 }
 
-<h2>Applicants</h2>
+<div class="titlebar">Applicatants</div>
 
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
-<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.Applicant.UserName)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Applicant.Pass)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Applicant.Email)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Applicant.PhoneNum)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Applicant.FullName)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Applicant.JobCount)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Applicant.Rating)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Applicant.Location)
-        </th>
-        <th></th>
-    </tr>
-
-@foreach (var item in Model) {
- 
-    <tr>
-        <td>
-            <a href="@Url.Action("JobApplicant/"+item.Applicant.UserId+"/"+item.Application.ApplicationId)">@Html.DisplayFor(modelItem => item.Applicant.UserName)</a>
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Applicant.Pass)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Applicant.Email)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Applicant.PhoneNum)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Applicant.FullName)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Applicant.JobCount)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Applicant.Rating)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Applicant.Location)
-        </td>
-        <td>
-            @Html.ActionLink("Hire", "Hire", new { id=item.Application.ApplicationId }) |
-            @Html.ActionLink("Decline", "Decline", new { id=item.Application.ApplicationId }) |
-        </td>
-    </tr>
+@foreach (var item in Model)
+{
+    @Html.Partial("ApplicantBanner", item)
 }
-
-</table>

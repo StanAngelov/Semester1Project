@@ -1,0 +1,19 @@
+﻿@model Semester1Project.ViewModels.UserApplicationViewModel
+<div class="BannerRoot">
+    <a href="@Url.Action("UserDetail/"+Model.Applicant.UserId)">
+        <div class="row jobrow">
+            <div class="col-xs-9 jobbanner">
+                <span class="bannerSpanTitle">@Model.Applicant.FullName </span>
+                <span class="bannerSpanLocation">@Model.Applicant.UserName </span>
+            </div>
+            <div class="col-xs-3 jobpayment">
+                <span class="bannerPayment">Phone: @Model.Applicant.PhoneNum</span>
+                <br />
+                <span>@Model.Applicant.Email</span>
+            </div>
+        </div>
+    </a>
+</div>
+
+@*@Html.ActionLink("Hire", "Hire", new { id = item.Application.ApplicationId }) |
+@Html.ActionLink("Decline", "Decline", new { id = item.Application.ApplicationId }) |*@
