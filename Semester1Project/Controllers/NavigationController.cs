@@ -244,6 +244,30 @@ namespace Semester1Project.Controllers
             }
 
         }
+        public ActionResult Workers(int id)
+        {
+            if (Session["UserId"] != null)
+            {
+                using (JobStoreContext db = new JobStoreContext())
+                {
+                    Job job = db.Jobs.Where(c => c.JobId == id).FirstOrDefault();
+                    List<Application> applications = new List<Application>();
+                    applications = db.Applications.Where(a => a.Job.JobId == job.JobId && a.Status == "Started").ToList();
+                    List<User> workers = new List<User>();
+                    applications.ForEach(x => workers.Add(x.User));
+                    //List<User> applicants = new List<User>();
+                    //List<UserApplicationViewModel> viewmodel = new List<UserApplicationViewModel>();
+                    //UserApplicationViewModel entry = new UserApplicationViewModel();
+                    //applications.ForEach(x => { entry.Application = x; entry.Applicant = x.User; viewmodel.Add(entry); });
+                    return View("Workers",workers);
+                }
+            }
+            else
+            {
+                return RedirectToAction("Login");
+            }
+
+        }
 
         public ActionResult Register()
         {
@@ -314,6 +338,7 @@ namespace Semester1Project.Controllers
                     int Workers = 0;
                     Workers = db.Applications.Where(w => w.Job.JobId == id && w.Status == "Started").Count();
                     ViewBag.Workers = Workers;
+                    ViewBag.Applicants = db.Applications.Where(w => w.Job.JobId == id && w.Status == "Pending").Count();
                     return View("EditJob", job);
                 }
             }

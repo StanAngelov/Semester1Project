@@ -3088,6 +3088,8 @@
     <Content Include="Views\Navigation\UserDetail.cshtml" />
     <Content Include="Views\Navigation\JobApplicant.cshtml" />
     <Content Include="Views\Shared\ApplicantBanner.cshtml" />
+    <Content Include="Views\Shared\UserBanner.cshtml" />
+    <Content Include="Views\Navigation\Workers.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
