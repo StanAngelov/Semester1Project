@@ -552,7 +552,7 @@ namespace Semester1Project.Controllers
                     db.Applications.Add(app);
                     db.SaveChanges();
                     List<Job> JobList = db.Jobs.Where(c => c.IsDone != true).ToList();
-                    return View("Index",JobList);
+                    return RedirectToAction("JobDetail", id);
                 }
             }
             else
