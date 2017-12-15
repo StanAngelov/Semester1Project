@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>WorkAround</title>  
+    <title>WorkAround</title>
     <link href="~/Content/bootstrap.min.css" rel="stylesheet" type="text/css" />
     <link href="~/Content/Site.css" rel="stylesheet" type="text/css" />
     <script src="~/Scripts/modernizr-2.6.2.js"></script>
@@ -20,18 +20,19 @@
                 @Html.ActionLink("Application name", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
             </div>
             <div class="navbar-collapse collapse">
-                <ul class="nav navbar-nav">
-                </ul>
+                <ul class="nav navbar-nav"></ul>
             </div>
         </div>
     </div>
 
     <div class="container-fluid body-content">
-        @RenderBody()
+        <div class="rapper">
+            @RenderBody()
+        </div>
         <footer>
             <div class="navbar">
                 <a class="home icon" href="@Url.Action("Index")"><img class="icon" src="/open-iconic/svg/home.svg"></a>
-                <a class="search icon" href="@Url.Action("Search")" ><img class="icon" src="/open-iconic/svg/magnifying-glass.svg"></a>
+                <a class="search icon" href="@Url.Action("Search")"><img class="icon" src="/open-iconic/svg/magnifying-glass.svg"></a>
                 <a class="create icon" href="@Url.Action("SubmitJob")"><img class="icon" src="/open-iconic/svg/plus.svg"></a>
                 <a class="list icon" href="@Url.Action("MyOffers")"><img class="icon" src="/open-iconic/svg/list.svg"></a>
                 <a class="user icon" href="@Url.Action("UserProfile")"><img class="icon" src="/open-iconic/svg/person.svg"></a>
