@@ -238,6 +238,45 @@ namespace Semester1Project.Controllers
             }
         }
 
+        public ActionResult Refuse(int id)
+        {
+            if (Session["UserId"] != null)
+            {
+                using (JobStoreContext db = new JobStoreContext())
+                {
+                    int userId = Convert.ToInt32(Session["UserId"]);
+                    Application app = new Application();
+                    app = db.Applications.Where(x => x.ApplicationId == id && x.Job.JobCreator.UserId == userId).FirstOrDefault();
+                    Job job = new Job();
+                    job = app.Job;
+                    List<User> workers = new List<User>();
+                    User worker = new User();
+                    worker = app.User;
+                    if (job.Workers == null)
+                    {
+                        workers.Add(worker);
+                        job.Workers = workers;
+                    }
+                    else
+                    {
+                        workers = job.Workers.ToList();
+                        workers.Add(worker);
+                    }
+
+
+                    app.Status = "Refused";
+                    db.Applications.Remove(app);
+                    db.SaveChanges();
+                }
+
+                return RedirectToAction("Index");
+            }
+            else
+            {
+                return RedirectToAction("Login");
+            }
+        }
+
         public ActionResult Applicants(int id)
         {
             if (Session["UserId"] != null)
