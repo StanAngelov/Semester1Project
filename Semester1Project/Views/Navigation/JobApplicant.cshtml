@@ -4,72 +4,24 @@
     ViewBag.Title = "JobApplicant";
 }
 
-<h2>JobApplicant</h2>
+<div class="titlebar">Job Applicant</div>
 
-<div>
-    <h4>User</h4>
-    <hr />
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.Applicant.UserName)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Applicant.UserName)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Applicant.Email)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Applicant.Email)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Applicant.PhoneNum)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Applicant.PhoneNum)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Applicant.FullName)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Applicant.FullName)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Applicant.JobCount)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Applicant.JobCount)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Applicant.Rating)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Applicant.Rating)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Applicant.Location)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Applicant.Location)
-        </dd>
-
-    </dl>
+<div class="applicantinfo">
+    <label>Username: </label>
+    <div class="col-xs-12 text-center">@Html.DisplayFor(model => model.Applicant.UserName)</div>
+    <label>E-Mail: </label>
+    <div class="col-xs-12 text-center">@Html.DisplayFor(model => model.Applicant.Email)</div>
+    <label>Phone: </label>
+    <div class="col-xs-12 text-center">@Html.DisplayFor(model => model.Applicant.PhoneNum)</div>
+    <label>Full name: </label>
+    <div class="col-xs-12 text-center">@Html.DisplayFor(model => model.Applicant.FullName)</div>
+    <label>Jobs done: </label>
+    <div class="col-xs-12 text-center">@Html.DisplayFor(model => model.Applicant.JobCount)</div>
+    <label>Location: </label>
+    <div class="col-xs-12 text-center">@Html.DisplayFor(model => model.Applicant.Location)</div>
+    <input type="button" value="Hire" class="btn btn-default col-xs-12" onclick="@("window.location.href='" + @Url.Action("Hire/"+Model.Application.ApplicationId) + "'");" />
+    <br />
+    <input type="button" value="Decline" class="btn btn-default col-xs-12" onclick="@("window.location.href='" + @Url.Action("Delcine/"+Model.Application.ApplicationId) + "'");" />
+    <br />
+    <input type="button" value="Back to applicants" class="btn btn-default col-xs-12" onclick="@("window.location.href='" + @Url.Action("Index") + "'");" />
 </div>
-<p>
-    @Html.ActionLink("Hire", "Hire", new { id = Model.Application.ApplicationId }) |
-    @Html.ActionLink("Decline", "Decline", new { id = Model.Application.ApplicationId }) |
-    @Html.ActionLink("Back to List", "Index")
-</p>

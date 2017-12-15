@@ -4,10 +4,16 @@
     src: url("../Fonts/Dopestyle.ttf");
 }
 
+@font-face {
+    font-family: "Champagne & Limousines";
+    src: url("../Fonts/Champagne & Limousines.ttf");
+}
+
 a, a:link, a:visited, a:hover {
     color: black;
 }
 body {
+    font-family: "Champagne & Limousines";
     background: linear-gradient(to bottom, #51ADFF, #3CC0E8);
 }
 html,body {
@@ -64,9 +70,16 @@ label {
     border-color: #2686E8;
 }
 
-    .btn:hover {
-        background-color: #3ECBE8;
-    }
+.btn:hover {
+    background-color: #3ECBE8;
+}
+
+.applicantinfo {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
 
 .row {
     margin-right: 0px;
