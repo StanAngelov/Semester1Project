@@ -42,7 +42,7 @@
  
     <tr>
         <td>
-            <a href="@Url.Action("UserDetail/"+item.Applicant.UserId)">@Html.DisplayFor(modelItem => item.Applicant.UserName)</a>
+            <a href="@Url.Action("JobApplicant/"+item.Applicant.UserId+"/"+item.Application.ApplicationId)">@Html.DisplayFor(modelItem => item.Applicant.UserName)</a>
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.Applicant.Pass)

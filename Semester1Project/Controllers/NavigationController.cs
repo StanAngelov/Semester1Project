@@ -117,6 +117,42 @@ namespace Semester1Project.Controllers
 
            
         }
+        
+        public ActionResult JobApplicant(int id, int appid)
+        {
+            if (Session["UserId"] != null)
+            {
+                using (JobStoreContext db = new JobStoreContext())
+                {
+                    int UserId = Convert.ToInt32(Session["UserId"]);
+                    User user = new User();
+                    user = db.Users.Where(x => x.UserId == id).FirstOrDefault();
+                    Application app = new Application();
+                    app = db.Applications.Where(e => e.ApplicationId == appid && e.Job.JobCreator.UserId == UserId && e.User.UserId == user.UserId).FirstOrDefault();
+                    UserApplicationViewModel viewmodel = new UserApplicationViewModel()
+                    {
+                        Applicant = user,
+                        Application = app
+                    };
+                    if(app == null)
+                    {
+                        return RedirectToAction("Index");
+                    }
+                    else
+                    {
+                        return View(viewmodel);
+                    }
+                 
+                    
+                }
+            }
+            else
+            {
+                return RedirectToAction("Login");
+            }
+
+
+        }
      
 
         public ActionResult MyOffers()

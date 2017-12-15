@@ -1,0 +1,75 @@
+﻿@model Semester1Project.ViewModels.UserApplicationViewModel
+
+@{
+    ViewBag.Title = "JobApplicant";
+}
+
+<h2>JobApplicant</h2>
+
+<div>
+    <h4>User</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Applicant.UserName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Applicant.UserName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Applicant.Email)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Applicant.Email)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Applicant.PhoneNum)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Applicant.PhoneNum)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Applicant.FullName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Applicant.FullName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Applicant.JobCount)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Applicant.JobCount)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Applicant.Rating)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Applicant.Rating)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Applicant.Location)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Applicant.Location)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Hire", "Hire", new { id = Model.Application.ApplicationId }) |
+    @Html.ActionLink("Decline", "Decline", new { id = Model.Application.ApplicationId }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

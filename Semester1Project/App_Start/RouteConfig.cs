@@ -18,6 +18,12 @@ namespace Semester1Project
                 url: "{action}/{id}",
                 defaults: new { controller = "Navigation", action = "Index", id = UrlParameter.Optional }
             );
+
+            routes.MapRoute(
+                name: "NotDefault",
+                url: "{action}/{id}/{appid}",
+                defaults: new { controller = "Navigation", action = "Index", id = UrlParameter.Optional , appid= UrlParameter.Optional}
+            );
         }
     }
 }
