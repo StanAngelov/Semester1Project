@@ -22,7 +22,7 @@
     <br />
     <input type="button" value="Hire" class="btn btn-default col-xs-12" onclick="@("window.location.href='" + @Url.Action("Hire/"+Model.Application.ApplicationId) + "'");" />
     <br />
-    <input type="button" value="Decline" class="btn btn-default col-xs-12" onclick="@("window.location.href='" + @Url.Action("Delcine/"+Model.Application.ApplicationId) + "'");" />
+    <input type="button" value="Decline" class="btn btn-default col-xs-12" onclick="@("window.location.href='" + @Url.Action("Refuse/"+Model.Application.ApplicationId) + "'");" />
     <br />
     <input type="button" value="Back to applicants" class="btn btn-default col-xs-12" onclick="@("window.location.href='" + @Url.Action("Index") + "'");" />
 </div>
