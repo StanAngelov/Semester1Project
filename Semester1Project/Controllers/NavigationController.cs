@@ -551,8 +551,9 @@ namespace Semester1Project.Controllers
                     };
                     db.Applications.Add(app);
                     db.SaveChanges();
+                    int id2 = id;
                     List<Job> JobList = db.Jobs.Where(c => c.IsDone != true).ToList();
-                    return RedirectToAction("JobDetail", id);
+                    return RedirectToAction("JobDetail", new { id = id2 });
                 }
             }
             else
