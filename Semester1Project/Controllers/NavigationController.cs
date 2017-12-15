@@ -164,12 +164,27 @@ namespace Semester1Project.Controllers
             if (Session["UserId"] != null)
             {
                 List<Job> JobList = new List<Job>();
+                List<Application> inProgress = new List<Application>();
+                List<Job> jobsInProgress = new List<Job>();
                 using (JobStoreContext db = new JobStoreContext())
                 {
                     int UserId = Convert.ToInt32(Session["UserId"]);
 
                     JobList = db.Jobs.Where(c => c.JobCreator.UserId == UserId ).ToList();
+                    inProgress = db.Applications.Where(w => w.User.UserId == UserId && w.Status == "Started").ToList();
+                    inProgress.ForEach(d => jobsInProgress.Add(db.Jobs.Where(x => x.JobId == d.Job.JobId).FirstOrDefault()));
+
+
                 }
+                try
+                {
+                     ViewBag.started = jobsInProgress;
+                }
+                catch
+                {
+
+                }
+              
                 return View(JobList);
             }
             else
@@ -410,7 +425,8 @@ namespace Semester1Project.Controllers
                 {
                     int UserId = Convert.ToInt32(Session["UserId"]);
                     Job job = db.Jobs.Where(c => c.JobId == id ).FirstOrDefault();
-                    Application app = db.Applications.Where(x => x.Job.JobId == job.JobId && x.User.UserId == UserId).FirstOrDefault();
+                    Application app = new Application();
+                    app = db.Applications.Where(x => x.Job.JobId == job.JobId && x.User.UserId == UserId).FirstOrDefault();
 
                     if (job.JobCreator.UserId == UserId)
                     {
@@ -418,7 +434,15 @@ namespace Semester1Project.Controllers
                     }
                     else
                     {
-                        ViewBag.appstatus = app.Status;
+                        try
+                        {
+                            ViewBag.appstatus = app.Status;
+                        }
+                        catch 
+                        {
+
+                        }
+                       
 
                         return View(job);
                     }

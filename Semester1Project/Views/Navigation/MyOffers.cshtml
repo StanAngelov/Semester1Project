@@ -12,6 +12,12 @@
 
    @Html.Partial("IndexJobBanner", job) 
 }
+<h3>Jobs in progress</h3>
+@foreach (Job job in ViewBag.started)
+{
+
+    @Html.Partial("IndexJobBanner", job)
+}
 
 @*<a href="@Url.Action("ChangeJob/"+job.JobId)"> @Html.Partial("IndexJobBanner", job) </a>*@
 
