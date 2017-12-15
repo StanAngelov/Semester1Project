@@ -6,13 +6,13 @@
 }
 
 <div class="titlebar">My Offers</div>
-
+<label>Offers you've submitted</label>
 @foreach (Job job in Model)
 {
 
    @Html.Partial("IndexJobBanner", job) 
 }
-<h3>Jobs in progress</h3>
+<label hidden="@(ViewBag.started.Count == 0)">Jobs in progress</label>
 @foreach (Job job in ViewBag.started)
 {
 
