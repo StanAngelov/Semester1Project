@@ -3,13 +3,13 @@
     <a href="@Url.Action("UserDetail/"+Model.Applicant.UserId)">
         <div class="row jobrow">
             <div class="col-xs-9 jobbanner">
-                <span class="bannerSpanTitle">@Model.Applicant.UserName </span>
-                <span class="bannerSpanLocation">@Model.Applicant.FullName </span>
+                <span class="bannerSpanTitle">@Model.Applicant.FullName </span>
+                <span class="bannerSpanLocation">@Model.Applicant.UserName </span>
             </div>
             <div class="col-xs-3 jobpayment">
-                <span class="bannerPayment">@Model.Applicant.Email</span>
+                <span class="bannerPayment">Phone: @Model.Applicant.PhoneNum</span>
                 <br />
-                <span>@Model.Applicant.PhoneNum</span>
+                <span>@Model.Applicant.Email</span>
             </div>
         </div>
     </a>
