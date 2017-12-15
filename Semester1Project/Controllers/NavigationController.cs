@@ -412,7 +412,7 @@ namespace Semester1Project.Controllers
                     db.SaveChanges();
                 }
 
-                    return View();
+                return RedirectToAction("Index");
             }
             else
             {

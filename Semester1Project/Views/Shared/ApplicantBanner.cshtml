@@ -1,6 +1,6 @@
 ﻿@model Semester1Project.ViewModels.UserApplicationViewModel
 <div class="BannerRoot">
-    <a href="@Url.Action("UserDetail/"+Model.Applicant.UserId)">
+    <a href="@Url.Action("JobApplicant/"+Model.Applicant.UserId+"/"+Model.Application.ApplicationId)">
         <div class="row jobrow">
             <div class="col-xs-9 jobbanner">
                 <span class="bannerSpanTitle">@Model.Applicant.FullName </span>
