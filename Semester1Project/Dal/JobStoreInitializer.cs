@@ -14,7 +14,7 @@ namespace Semester1Project.Dal
             List<Job> Jobs = new List<Job>();
 
             User user1 = new User() { FullName = "John Smith", Email = "johnsmithcorp@jscorp.de", JobCount = 0, PhoneNum = "555123123", UserName = "johnnyboy", Pass = "qwe" };
-            User user2 = new User() { FullName = "Johnny Test", Email = "jhonnytest@whatever,com", JobCount = 0, PhoneNum = "444123456", UserName = "jtest", Pass = "jtest" };
+            User user2 = new User() { FullName = "Johnny Test", Email = "jhonnytest@whatever.com", JobCount = 0, PhoneNum = "444123456", UserName = "jtest", Pass = "jtest" };
             User user3 = new User() { FullName = "James Johnson", Email = "jjs@johnsons.org", JobCount = 0, PhoneNum = "921555123", UserName = "jjs", Pass = "jjs" };
             User user4 = new User() { FullName = "Jane Doe", Email = "janedoe@doecorp.com", JobCount = 0, PhoneNum = "341234567", UserName = "jane", Pass = "jane" };
 
