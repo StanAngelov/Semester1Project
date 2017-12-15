@@ -1,0 +1,12 @@
+﻿@model IEnumerable<Semester1Project.Models.User>
+
+@{
+    ViewBag.Title = "Workers";
+}
+
+<div class="titlebar">Applicatants</div>
+
+@foreach (var item in Model)
+{
+    @Html.Partial("UserBanner", item)
+}
